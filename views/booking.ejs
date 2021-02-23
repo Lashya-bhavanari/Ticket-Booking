@@ -1,0 +1,255 @@
+<%- include('partials/header') %>
+
+  <!-- navbar start -->
+  <nav class="navbar navbar-expand-lg navbar-light topBar">
+    <a class="navbar-brand mainHead" href="#"><i class="fa fa-ticket"></i> TICKETS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" style="margin-top : 35px;" id="navbarNavDropdown">
+        <ul class="navbar-nav flex-grow-1 navLinksUl">
+            <li class="nav-item active" style="flex-grow: inherit;">
+            </li>
+            <li class="nav-item active dropdown">
+                <a class="nav-link dropdown-toggle font-weight-bold hoverEffect downArrow" href="#"
+                    id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false"> My Tickets </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item ChangeColor" href="#" target="">Upcoming</a>
+                    <a class="dropdown-item ChangeColor" href="#" target="">Completed</a>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link font-weight-bold hoverEffect" href="./logout">Log out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- /navbar end -->
+<!-- Header start -->
+<div class="headDiv">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-5">
+                <div class="card text-center card-container pt-3 pb-3 bgColor">
+                    <div class="card-header border border-0 bg-transparent">
+                        <ul class="nav nav-tabs border border-0 justify-content-center">
+                            <li class="nav-item">
+                                <button class="nav-btn  px-4 py-2 linksFont LinkBg hoverEffect" onclick="m1()" href="#Flights"><i
+                                        class="fa fa-plane"></i> Flights</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-btn  px-4 py-2 linksFont LinkBg hoverEffect" onclick="m2()"
+                                    href="#Trains"><i class="fa fa-train"></i> Trains</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-btn active px-4 py-2 linksFont LinkBg hoverEffect" onclick="m3()" href="#Buses"><i
+                                        class="fa fa-bus"></i> Buses</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body ">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="FromText" class="float-left font-weight-bold">From : </label>
+                                    <input type="text" class="form-control" id="FromText" placeholder="SOURCE">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="ToText" class="float-left font-weight-bold">To :</label>
+                                    <input type="text" class="form-control" id="ToText" placeholder="DESITINATION">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="TravelDate" class="float-left font-weight-bold">Journey Date
+                                    :</label><br><br>
+                                <input class="w-50 float-left" type="date" class="form-control" id="TravelDate"
+                                    placeholder="">
+                            </div><br>
+                            <div class="col-auto my-1" id="flightsClass">
+                                <label class="mr-sm-2 float-left font-weight-bold"
+                                    for="inlineFormCustomSelect">Class :</label>
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Business</option>
+                                    <option value="2">First</option>
+                                    <option value="3">Economy</option>
+                                </select>
+                            </div>
+                            <div style="display: none;" class="col-auto my-1" id="trainClass" >
+                                <label class="mr-sm-2 float-left font-weight-bold"
+                                    for="inlineFormCustomSelect">Class :</label>
+                                <select  class="custom-select mr-sm-2"
+                                    id="inlineFormCustomSelect1">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Ac First Class</option>
+                                    <option value="2">Ac 2 Tier</option>
+                                    <option value="3">Ac 3 Tier</option>
+                                    <option value="3"> Sleeper</option>
+                                    <option value="3"> Second Seating (2S)</option>
+                                </select>
+                            </div>
+                            <div style="display: none;" class="col-auto my-1" id="busClass">
+                                <label class="mr-sm-2 float-left font-weight-bold"
+                                    for="inlineFormCustomSelect">Class :</label>
+                                <select  class="custom-select mr-sm-2"
+                                    id="inlineFormCustomSelect2">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Sleeper</option>
+                                    <option value="2">Semi Sleeper</option>
+                                    <option value="3">Ac Sleeper</option>
+                                    <option value="3">Ac Semi Sleeper</option>
+                                </select>
+                            </div>
+                            <div class="col-6 my-2 d-inline-block float-left">
+                                <label class="mr-sm-2 float-left font-weight-bold"
+                                    for="inlineFormCustomSelect">Adult :</label>
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <option selected>Choose...</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="3">4</option>
+                                    <option value="3">5</option>
+                                    <option value="3">6</option>
+                                </select>
+                            </div>
+                            <div class="col-6 my-2 d-inline-block">
+                                <label class="mr-sm-2 float-left font-weight-bold"
+                                    for="inlineFormCustomSelect">Child :</label>
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <option selected>Choose...</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="3">4</option>
+                                    <option value="3">5</option>
+                                    <option value="3">6</option>
+                                </select>
+                            </div>
+                        </form>
+                        <a href="/submit" class="btn btn-primary btn-block mt-2">SUBMIT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /Header end -->
+<!-- footer start -->
+<footer>
+    <div id="footer" class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <h3>About Tickets</h3>
+                    <p>Traveling it gives you in thousand strange places then leaves you a stranger in your own land
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <h3>Top Flights Routes</h3>
+                    <ul>
+                        <li><a href="#">Manila flights</a></li>
+                        <li><a href="#">Dubai flights</a></li>
+                        <li><a href="#">Bangkok flights</a></li>
+                        <li><a href="#">Tokyo Flight</a></li>
+                        <li><a href="#">New York Flights</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12 ">
+                    <h3>Train Routes</h3>
+                    <ul>
+                        <li><a href="#">Vijayawada Jn</a></li>
+                        <li><a href="#">Secunderabad Jn</a></li>
+                        <li><a href="#">KSR Bengaluru Jn</a></li>
+                        <li><a href="#">Chennai Central</a></li>
+                        <li><a href="#">Chatrapati Shivaji Terminus</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <h3>Bus Routes</h3>
+                    <ul>
+                        <li><a href="#">vishkapatnam</a></li>
+                        <li><a href="#">Hyderabad</a></li>
+                        <li><a href="#">Bengaluru</a></li>
+                        <li><a href="#">Chennai</a></li>
+                        <li><a href="#">Anantapur</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <p class="">
+                        <a class="iconSize mx-2" href="#"><i class="fa fa-twitter fa-2x"></i></a>
+                        <a class="iconSize mx-2" href="#"><i class="fa fa-facebook fa-2x"></i></a>
+                        <a class="iconSize mx-2" href="#"><i class="fa fa-instagram fa-2x"></i></a>
+                        <a class="iconSize mx-2" href="#"><i class="fa fa-youtube fa-2x"></i></a>
+                    </p>
+                    <p>Copyright 2021 Free Html5 . All Rights Reserved. <br>Made with <i class="fa fa-heart"></i> by
+                        Lashya Bhavanari</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- /footer end -->
+
+
+
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+</script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+-->
+<script>
+    // flight class
+function m1() {
+    var busClass = document.getElementById('busClass');
+    var flightsClass = document.getElementById('flightsClass') ;
+    var trainClass = document.getElementById('trainClass');
+    
+    flightsClass.style.display='block';
+    busClass.style.display='none';
+    trainClass.style.display='none';
+}
+
+// train classes
+
+function m2() {
+    var trainClass = document.getElementById('trainClass');
+    var flightsClass = document.getElementById('flightsClass') ;
+    var busClass = document.getElementById('busClass');
+
+    trainClass.style.display='block';
+    busClass.style.display='none';
+    flightsClass.style.display='none';
+
+}
+
+// bus classes
+
+function m3(){
+    var busClass = document.getElementById('busClass');
+    var flightsClass = document.getElementById('flightsClass') ;
+    var trainClass = document.getElementById('trainClass');
+    
+    busClass.style.display='block';
+    trainClass.style.display='none';
+    flightsClass.style.display='none';
+}
+</script>
+<%- include('partials/footer') %>
