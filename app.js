@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express=require("express");
 const bodyParser=require("body-parser");
 const ejs=require("ejs");
@@ -8,6 +9,7 @@ const encrypt=require("mongoose-encryption");
 
 const app=express();
 
+console.log(process.env.SECRET);
 
 app.use(express.static("public"));
 app.set('view engine','ejs');
@@ -24,8 +26,7 @@ const passengerSchema = new mongoose.Schema({
     password:String
 });
 
-const secret = "ThisArePassengersDetails.";
-passengerSchema.plugin(encrypt, { secret: secret, encryptedFields: ["password"] });
+passengerSchema.plugin(encrypt, { secret: process.env.SECRET, encryptedFields: ["password"] });
 
 
 const Passenger = new mongoose.model("Passenger", passengerSchema);
